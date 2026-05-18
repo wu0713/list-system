@@ -1,4 +1,4 @@
-# list-system
+# 1. list-system
 這是一個使用 Node.js (Express) 作為後端、MySQL 作為資料庫，並結合前端網頁（HTML/CSS/JS）的全端情資匯整系統。
 
 請按照以下步驟，在您的本機電腦完成環境建置與系統啟動。
@@ -36,12 +36,11 @@ const db = mysql.createConnection({
 打開終端機（Terminal），切換到本專案的 REPORT APP 目錄下，依序執行以下指令：
 
 Bash
-# 1. 安裝專案所需的 Node.js 依賴套件 (Express, MySQL2, CORS, Body-Parser)
-npm install
+# 2. 安裝 Node.js 套件，執行
+```npm install```
+```node server.js```
 
-# 2. 啟動後端伺服器
-node server.js
-當終端機顯示以下兩行，代表系統已成功對接並順利運行：
+
 
 Plaintext
 ✅ 後端已成功連線至 MySQL 資料庫！

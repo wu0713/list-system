@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SOM Manage System</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* 引入現代感字體：Inter 與 Montserrat */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@300;400;800&family=Noto+Sans+TC:wght@300;400;700&display=swap');
+
+        /* 1. 基礎設定與字體套用 */
+        :root {
+            --site-font: 'Inter', 'Noto Sans TC', sans-serif;
+            --title-font: 'Montserrat', sans-serif;
+        }
+
+        body {
+            font-family: var(--site-font);
+            background-color: #000000;
+        }
+
+        /* 2. 首頁大背景美化：去除網格、純黑風格 */
+        .s-intro {
+            background-color: #000000 !important;
+            background-image: none !important;
+        }
+
+        .s-intro__bg {
+            background: #000000 !important;
+            background-image: none !important;
+            opacity: 1 !important;
+        }
+
+        /* 去除模板自帶的點點網格遮罩 */
+        .s-intro__bg::before, 
+        .s-intro__bg::after {
+            display: none !important;
+            content: none !important;
+            background: none !important;
+        }
+
+        /* 3. 標題美化：簡約白色、去除灰色方塊 */
+        .s-intro__title {
+            font-family: var(--title-font) !important;
+            color: #ffffff !important;
+            background: transparent !important; /* 強制去除原本灰色的背景色塊 */
+            font-size: clamp(3.2rem, 8vw, 6rem) !important; /* 自適應大小 */
+            font-weight: 300 !important;       /* 輕盈細體，增加高級感 */
+            letter-spacing: 0.4rem !important;  /* 加寬字距 */
+            text-transform: uppercase;
+            padding: 0 !important;
+            margin: 0 auto !important;
+            text-shadow: none !important;
+            border: none !important;
+        }
+
+        /* 副標題美化 */
+        .s-intro__title small {
+            display: block;
+            font-size: 0.25em;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 300;
+            margin-top: 2rem;
+            letter-spacing: 0.6rem;
+            text-transform: uppercase;
+        }
+
+        /* 4. 頂部選單與按鈕美化 */
+        .s-header__block {
+            background-color: transparent !important;
+        }
+
+        /* ADD 按鈕美化 */
+        .btn--primary.s-header__cta-btn {
+            background-color: #d84b2a !important; /* 橘紅色保持亮點 */
+            border: none !important;
+            font-family: var(--title-font);
+            font-weight: 700;
+            color: #ffffff !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn--primary.s-header__cta-btn:hover {
+            background-color: #ff5733 !important;
+            transform: scale(1.05);
+        }
+
+        /* 選單文字顏色 */
+        .s-header__menu-toggle span {
+            color: #ffffff !important;
+        }
+
+        /* 5. 頁尾簡約化 */
+        .s-footer {
+            background-color: #000000 !important;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .ss-copyright span {
+            color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+
+</head>
+
+<body id="top">
+
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>   
+    
+
+    <div id="page" class="s-pagewrap ss-home">
+
+        <div class="menu-underlay"></div>
+
+        <header class="s-header">
+            <div class="s-header__block">
+                <a class="s-header__menu-toggle" href="#0"><span>Browse</span></a>
+                <div class="s-header__cta">
+                <a href="ADD.html" class="btn btn--primary s-header__cta-btn">新增表單(ADD NEW)</a>                        
+                </div>
+            </div>
+
+        <nav class="s-header__nav">    
+            <a href="#0" class="s-header__nav-close-btn" title="close"><span>Close</span></a>
+            <ul class="s-header__nav-links" id="main-nav">
+                  <li class="current"><a href="index.html">Home(首頁)</a></li>
+                    <li><a href="NAVY_P3C.html">海軍P3C反潛巡邏機(NAVY P3C)</a></li>
+                    <li><a href="CGA.html">海巡署(CGA)</a></li>
+                    <li><a href="NAVY.html">海軍(NAVY)</a></li>
+                    <li><a href="UAV.html">無人航空載具(UAV)</a></li>
+                    <li><a href="RF_16.html">空軍RF-16偵察機(Air Force RF-16)</a></li>
+        </nav>
+        </header> 
+
+        <section id="intro" class="s-intro">
+            <div class="s-intro__bg"></div>
+            <div class="row s-intro__content">
+                <div class="column xl-12">
+                    <h1 class="s-intro__title">
+                        SOM Manage System
+                        <small></small>
+                    </h1>
+                </div>                
+            </div> 
+        </section> 
+
+        <footer id="footer" class="s-footer">  
+            <div class="row s-footer__bottom">
+                <div class="column xl-6 lg-12">
+                    <p class="ss-copyright">
+                        <span>© Copyright TTN_TECH_TEAM 2026</span> 
+                        <span>Design by TWN_J6_Thomas</span>
+                    </p>
+                </div>
+            </div> 
+
+            <div class="ss-go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top">                 
+                    <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z" fill-rule="nonzero"/></svg>
+                </a>                                
+                <span>Back To Top</span>   
+            </div> 
+        </footer> 
+    </div> 
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+         // 1. 抓取儲存在瀏覽器裡的自定義模板
+        const customTemplates = JSON.parse(localStorage.getItem('custom_templates') || '[]');
+        const navLinksList = document.querySelector('.s-header__nav-links');
+
+        if (navLinksList && customTemplates.length > 0) {
+        customTemplates.forEach(temp => {
+            // 2. 建立新的清單項目 (li)
+            const newLi = document.createElement('li');
+            
+            // 3. 建立連結 (目前的純前端邏輯會跳轉到一個通用顯示頁，或你可以自行定義)
+            // 這裡我們先設定為帶有參數的連結，方便以後擴充功能
+            newLi.innerHTML = `<a href="dynamic_page.html?id=${temp.id}">${temp.name}</a>`;
+            
+            // 4. 將新標籤加入導覽列
+            navLinksList.appendChild(newLi);
+        });
+    }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navUl = document.getElementById('main-nav');
+    const customTemplates = JSON.parse(localStorage.getItem('custom_templates') || '[]');
+
+    // --- 1. 插入動態標籤 ---
+    customTemplates.forEach(temp => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="javascript:void(0)" class="nav-item" data-target="${temp.id}">${temp.name}</a>`;
+        navUl.appendChild(li);
+
+        // 同時為這些動態標籤建立內容容器 (如果還沒建立的話)
+        createDynamicSection(temp);
+    });
+
+    // --- 2. 統一處理點擊切換 ---
+    document.addEventListener('click', function(e) {
+        // 檢查點擊的是否為導覽項目
+        const targetLink = e.target.closest('.nav-item');
+        if (!targetLink) return;
+
+        e.preventDefault();
+
+        // A. 移除所有標籤的 "current" 狀態，並給點擊的標籤加上 "current"
+        document.querySelectorAll('#main-nav li').forEach(li => li.classList.remove('current'));
+        targetLink.parentElement.classList.add('current');
+
+        // B. 隱藏所有內容區塊 (包含靜態與動態)
+        // 假設你的內容區塊都有 "content-section" 這個類別
+        document.querySelectorAll('.content-section, .dynamic-section').forEach(sec => {
+            sec.style.display = 'none';
+        });
+
+        // C. 顯示目標區塊
+        const targetId = targetLink.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.style.display = 'block';
+            // 如果有使用 AOS 動畫，可以在這裡觸發重新整理
+            // if (typeof AOS !== 'undefined') AOS.refresh();
+        }
+    });
+
+    // 建立動態表單內容的函式
+    function createDynamicSection(temp) {
+        const container = document.getElementById('dynamic-content-area'); // 確保你有這個容器
+        if (!container) return;
+
+        const section = document.createElement('section');
+        section.id = temp.id;
+        section.className = 'dynamic-section';
+        section.style.display = 'none';
+        section.style.padding = '100px 20px';
+
+        let fieldsHtml = `
+            <div style="max-width: 800px; margin: auto;">
+                <h2 style="font-family: Montserrat; color: #d84b2a;">${temp.name} 任務紀錄</h2>
+                <div class="form-card" style="background: #111; padding: 40px; border: 1px solid #222;">
+        `;
+
+        temp.fields.forEach(f => {
+            fieldsHtml += `
+                <div style="margin-bottom: 20px;">
+                    <label style="color:#666; font-size:0.7rem;">${f.label.toUpperCase()}</label>
+                    <input type="${f.type}" style="width:100%; background:#1a1a1a; border:1px solid #333; color:white; padding:15px;">
+                </div>
+            `;
+        });
+
+        fieldsHtml += `
+                    <button class="btn btn--primary" style="width:100%;">提交數據 (SUBMIT)</button>
+                    <button onclick="deleteCategory('${temp.id}')" style="margin-top:20px; background:none; border:none; color:#444; font-size:0.6rem; cursor:pointer;">[ 刪除此自定義類別 ]</button>
+                </div>
+            </div>`;
+        
+        section.innerHTML = fieldsHtml;
+        container.appendChild(section);
+    }
+});
+
+function deleteCategory(id) {
+    if(confirm('確定刪除？')) {
+        let temps = JSON.parse(localStorage.getItem('custom_templates') || '[]');
+        temps = temps.filter(t => t.id !== id);
+        localStorage.setItem('custom_templates', JSON.stringify(temps));
+        location.reload();
+    }
+}
+</script>
+</body>
+</html>

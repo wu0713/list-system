@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>空軍RF-16偵察機(Air Force RF-16)</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --site-font: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --primary-color: #000000;
+            --accent-color: #d84b2a;
+            --border-color: #e5e5e5;
+            --bg-light: #f9f9f9;
+        }
+
+        body, input, select, textarea, .select2-container {
+            font-family: var(--site-font);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 黑色背景標題 - 簡約風 */
+        .page-title {
+            font-family: var(--site-font) !important;
+            font-size: 2.8rem !important;
+            font-weight: 300 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            color: #ffffff !important;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            margin: 0 !important;
+            text-align: center;
+        }
+
+        .s-pageheader {
+            background-color: #000; /* 確保標題背景是黑色的 */
+            padding: 6rem 0;
+        }
+
+        /* 表單區域 */
+        .s-content__form {
+            padding: 8rem 0;
+            background-color: #ffffff;
+        }
+
+        .form-field {
+            margin-bottom: 2.4rem;
+        }
+
+        label {
+            display: block;
+            font-size: 1.3rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+            color: #555 !important;
+        }
+
+        /* 輸入框統一樣式 */
+        input[type="text"], input[type="tel"], input[type="date"], textarea {
+            width: 100%;
+            height: 60px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-light);
+            border-radius: 4px;
+            font-size: 1.5rem !important;
+            transition: all 0.3s ease;
+        }
+
+        /* Select2 美化 */
+        .select2-container--default .select2-selection--single {
+            height: 60px !important;
+            background-color: var(--bg-light) !important;
+            border: 1px solid var(--border-color) !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 60px !important;
+            padding-left: 1.5rem !important;
+            font-size: 1.5rem !important;
+        }
+
+        .select2-container--default .select2-search--dropdown .select2-search__field {
+            padding: 8px !important;
+            font-size: 1.4rem !important;
+        }
+
+        /* 按鈕美化 */
+        .btn--primary.u-fullwidth {
+            height: 60px;
+            background-color: #000 !important;
+            color: #fff !important;
+            border: none;
+            font-weight: 700;
+            letter-spacing: 0.2rem;
+            transition: 0.3s;
+        }
+
+        .btn--primary.u-fullwidth:hover {
+            background-color: #333 !important;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div><div></div><div></div>
+        </div>
+    </div>   
+
+    <div id="page" class="s-pagewrap">
+        <header class="s-header">
+            <div class="s-header__block">
+                <a class="s-header__menu-toggle" href="#0"><span>Browse</span></a>
+                <div class="s-header__cta">
+                    <a href="reservations.html" class="btn btn--primary s-header__cta-btn">匯入檔案(Import)</a>                        
+                </div>
+            </div> 
+
+            <nav class="s-header__nav">    
+                <a href="#0" class="s-header__nav-close-btn" title="close"><span>Close</span></a>
+                <ul class="s-header__nav-links">
+                    <li><a href="index.html">Home(首頁)</a></li>
+                    <li><a href="NAVY_P3C.html">海軍P3C反潛巡邏機(NAVY P3C)</a></li>
+                    <li ><a href="CGA.html">海巡署(CGA)</a></li>
+                    <li ><a href="NAVY.html">海軍(NAVY)</a></li>
+                    <li><a href="UAV.html">無人航空載具(UAV)</a></li>
+                    <li class="current"><a href="RF_16.html">空軍RF-16偵察機(Air Force RF-16)</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article class="s-content">
+            <section class="s-pageheader">
+                <div class="row">
+                    <div class="column xl-12">
+                        <h1 class="page-title">空軍RF-16偵察機(Air Force RF-16)</h1>                     
+                    </div>
+                </div>
+            </section> 
+            
+            <section class="s-content__form">
+    <div class="row width-narrower">
+        <div class="column xl-12">
+            <form name="contactForm" id="contactForm" method="POST" action="submit_data.php">
+                <fieldset>
+                    
+                    <div class="form-field"> 
+                        <label for="target-type">目標類型 (Target Type)</label>
+                        <select name="target_type" id="target-type" class="u-fullwidth searchable-select">
+                            <option value="">請輸入關鍵字搜尋...</option>
+                            <option value="surface">水面目標 (Surface)</option>
+                            <option value="air">空中目標 (Air)</option>
+                            <option value="subsurface">水下目標 (Subsurface)</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <div class="column xl-6 md-12 form-field">
+                            <label for="military">軍種 (Military)</label>
+                            <select name="military" id="military" class="u-fullwidth searchable-select">
+                                <option value="">請選擇...</option>
+                                <option value="navy">海軍 (NAVY)</option>
+                                <option value="cga">海巡 (CGA)</option>
+                                <option value="airforce">空軍 (Air Force)</option>
+                            </select>
+                        </div>
+                        <div class="column xl-6 md-12 form-field">
+                            <label for="nationality">國籍 (Nationality)</label>
+                            <select name="nationality" id="nationality" class="u-fullwidth searchable-select">
+                                <option value="">請選擇...</option>
+                                <option value="ROC">中華民國 (R.O.C)</option>
+                                <option value="PRC">中國 (P.R.C)</option>
+                                <option value="USA">美國 (U.S.A)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="column xl-6 md-12 form-field">
+                            <label for="target-number">數量 (Number)</label>
+                            <input type="number" name="target_number" id="target-number" placeholder="1" min="1" class="u-fullwidth">
+                        </div>
+                        <div class="column xl-6 md-12 form-field">
+                            <label for="source-reliability">信心識別度 (Idnetification Confidence Score)</label>
+                            <select name="conf_id" id="source-reliability" class="u-fullwidth">
+                                <option value="A">A - 完全可靠(30%以下)</option>
+                                <option value="B">B - 通常可靠(31~50%)</option>
+                                <option value="C">C - 相當可靠(51~81%)</option>
+                                <option value="D">D - 不可靠(81~95%)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>座標位置 (Coordinates)</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" name="latitude" id="latitude" placeholder="緯度 (Lat) 例如: 22.627" style="flex: 1;">
+                            <input type="text" name="longitude" id="longitude" placeholder="經度 (Lng) 例如: 120.301" style="flex: 1;">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="column xl-4 md-12 form-field">
+                            <label for="heading">航向 (Heading °)</label>
+                            <input type="number" name="heading" id="heading" placeholder="0-359" min="0" max="359" class="u-fullwidth">
+                        </div>
+                        <div class="column xl-4 md-12 form-field">
+                            <label for="speed">航速 (Speed kts)</label>
+                            <input type="number" name="speed" id="speed" placeholder="節" min="0" class="u-fullwidth">
+                        </div>
+                        <div class="column xl-4 md-12 form-field">
+                            <label for="altitude">高度 (Altitude ft)</label>
+                            <input type="number" name="altitude" id="altitude" placeholder="英呎" class="u-fullwidth">
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="status">目前狀態 (Status)</label>
+                        <select name="status" id="status" class="u-fullwidth searchable-select">
+                            <option value="tracking">錨泊 (Anchorage/Mooring)</option>
+                            <option value="lost">戰備警巡 (Combat Readiness Patrol)</option>
+                            <option value="identified">訓練 (Trainging)</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <div class="column xl-6 md-12 form-field">
+                            <label for="conf-coord">座標信心度 (Coord Confidence %)</label>
+                            <input type="number" name="conf_coord" id="conf-coord" placeholder="0-100" min="0" max="100" class="u-fullwidth">
+                        </div>
+                        <div class="column xl-6 md-12 form-field">
+                            <label for="source-reliability">來源可靠度 (Reliability)</label>
+                            <select name="reliability" id="source-reliability" class="u-fullwidth">
+                                <option value="A">A - 完全可靠(30%以下)</option>
+                                <option value="B">B - 通常可靠(31~50%)</option>
+                                <option value="C">C - 相當可靠(51~81%)</option>
+                                <option value="D">D - 不可靠(81~95%)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-field" style="margin-top: 3rem;">
+                        <input type="submit" value="送出報表" class="btn btn--primary u-fullwidth">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>
+        </article>
+
+        <footer id="footer" class="s-footer">  
+            <div class="row s-footer__bottom">
+                <div class="column xl-6 lg-12">
+                    <p class="ss-copyright">
+                        <span>© Copyright TTN_TECH_TEAM 2026</span> 
+                        <span>Design by TWN_J6_Thomas</span>
+                    </p>
+                </div>
+            </div>
+            <div class="ss-go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top">                    
+                    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z"/></svg>
+                </a>                                
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            function formatState(state) {
+                if (!state.id) return state.text;
+                return $('<span><i class="fa fa-database" style="margin-right: 10px; color: #888;"></i>' + state.text + '</span>');
+            }
+
+            $('.searchable-select').select2({
+                placeholder: "請輸入關鍵字搜尋...",
+                allowClear: true,
+                width: '100%',
+                templateResult: formatState
+            });
+
+            // 資料填充
+            var cgaData = [{ id: 'CGA_01', text: '嘉義級巡防艦' }, { id: 'CGA_02', text: '安平級執法船' }];
+            var navyData = [{ id: 'N_01', text: '成功級巡防艦' }, { id: 'N_02', text: '陀江級軍艦' }];
+            var afData = [{ id: 'AF_01', text: '空勤總隊黑鷹直升機' }, { id: 'AF_02', text: '無人機偵蒐小組' }];
+
+            function populate(id, data) {
+                var $s = $('#' + id);
+                data.forEach(d => $s.append(new Option(d.text, d.id, false, false)));
+                $s.trigger('change');
+            }
+
+            populate('db-select-cga', cgaData);
+            populate('db-select-navy', navyData);
+            populate('db-select-af', afData);
+        });
+    </script>
+</body>
+</html>

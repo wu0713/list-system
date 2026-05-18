@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新增表單 ADD NEW Data - SOM Manage System</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@300;400;800&family=Noto+Sans+TC:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #d84b2a;
+            --bg-color: #000000;
+            --card-bg: #111111;
+            --input-bg: #1a1a1a;
+            --text-main: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.5);
+            --site-font: 'Inter', 'Noto Sans TC', sans-serif;
+            --title-font: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--site-font);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* 玻璃擬態卡片設計 */
+        .config-card {
+            background: var(--card-bg);
+            width: 90%;
+            max-width: 700px;
+            padding: 40px;
+            border-radius: 4px; /* 維持原模板的簡約線條 */
+            border: 1px solid #222;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .header-area {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .header-area h1 {
+            font-family: var(--title-font);
+            font-weight: 300;
+            letter-spacing: 0.5rem;
+            text-transform: uppercase;
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .header-area p {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            letter-spacing: 0.2rem;
+            margin-top: 10px;
+        }
+
+        /* 表單元素優化 */
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid #333;
+            color: white;
+            padding: 12px 15px;
+            font-family: var(--site-font);
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* 動態欄位列 */
+        .field-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .remove-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: #444;
+            cursor: pointer;
+            padding: 0 15px;
+            transition: all 0.3s;
+        }
+
+        .remove-btn:hover {
+            color: white;
+            background: #ff4444;
+            border-color: #ff4444;
+        }
+
+        /* 按鈕系統 */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 15px;
+            cursor: pointer;
+            font-family: var(--title-font);
+            font-weight: 700;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-add {
+            background: transparent;
+            border: 1px dashed #444;
+            color: var(--text-dim);
+        }
+
+        .btn-add:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-save {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-save:hover {
+            background: #ff5733;
+            transform: translateY(-2px);
+        }
+
+        .btn-back {
+            text-decoration: none;
+            color: var(--text-dim);
+            text-align: center;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="config-card">
+        <div class="header-area">
+            <h1>Create New Data</h1>
+            <p></p>
+        </div>
+
+        <div class="form-group">
+            <label>Category Title / 類別名稱</label>
+            <input type="text" id="page-name" placeholder="e.g. SATELLITE GROUND STATION">
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #222; margin-bottom: 30px;">
+
+        <div class="form-group">
+            <label>Field Definitions / 欄位定義</label>
+            <div id="fields-container">
+                </div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-add" onclick="addField()">+ 新增欄位 Add New Field</button>
+            <button class="btn btn-save" onclick="saveTemplate()">建立表單 Build & Publish</button>
+            <a href="index.html" class="btn-back">回到首頁 Cancel & Return to Home</a>
+        </div>
+    </div>
+
+    <script>
+    // 增加欄位函式
+    function addField() {
+        const container = document.getElementById('fields-container');
+        const div = document.createElement('div');
+        div.className = 'field-row';
+        div.innerHTML = `
+            <input type="text" class="f-label" 
+                   placeholder="輸入欄位名稱" 
+                   style="flex: 2;" 
+                   oninput="checkInput(this)">
+            <select class="f-type" style="flex: 1;">
+                <option value="text">TEXT</option>
+                <option value="number">NUMBER</option>
+                <option value="date">DATE</option>
+            </select>
+            <button class="remove-btn" onclick="this.parentElement.remove()">✕</button>
+        `;
+        container.appendChild(div);
+        
+        // 剛新增出來時，因為是空的，直接執行一次檢查讓它變紅 (如果你希望一開始就提示)
+        const newInput = div.querySelector('.f-label');
+        checkInput(newInput);
+    }
+
+    // [核心邏輯]：即時檢查輸入值是否為空
+    function checkInput(element) {
+        if (element.value.trim() === "") {
+            element.style.borderColor = "#ff4444"; // 為空時顯示紅色
+            element.style.boxShadow = "0 0 5px rgba(255, 68, 68, 0.2)";
+        } else {
+            element.style.borderColor = "#333"; // 有值時恢復深色背景
+            element.style.boxShadow = "none";
+        }
+    }
+
+    // 儲存邏輯
+    function saveTemplate() {
+        const nameInput = document.getElementById('page-name');
+        const name = nameInput.value.trim(); 
+        
+        // 檢查類別名稱
+        if (!name) {
+            alert("⚠️ 錯誤：[類別名稱] 不能為空！");
+            nameInput.style.borderColor = "#ff4444";
+            nameInput.focus();
+            return;
+        }
+
+        const fields = [];
+        const rows = document.querySelectorAll('.field-row');
+        
+        if (rows.length === 0) {
+            alert("⚠️ 錯誤：請至少新增一個欄位。");
+            return;
+        }
+
+        let isAllFilled = true;
+        rows.forEach((row) => {
+            const labelInput = row.querySelector('.f-label');
+            const label = labelInput.value.trim();
+            const type = row.querySelector('.f-type').value;
+
+            if (!label) {
+                isAllFilled = false;
+                labelInput.style.borderColor = "#ff4444"; // 確保未填寫的變紅
+            } else {
+                fields.push({ label, type });
+            }
+        });
+
+        if (!isAllFilled) {
+            alert("⚠️ 錯誤：偵測到尚未填寫的欄位名稱！");
+            return;
+        }
+
+        // 執行儲存
+        const templates = JSON.parse(localStorage.getItem('custom_templates') || '[]');
+        templates.push({ 
+            id: 'custom-' + Date.now(), 
+            name: name.toUpperCase(), 
+            fields: fields 
+        });
+        localStorage.setItem('custom_templates', JSON.stringify(templates));
+
+        alert('✅ Mission Successful: New Category Deployed.');
+        window.location.href = 'index.html';
+    }
+
+    // 初始化：類別名稱也要有即時檢查
+    window.onload = function() {
+        addField();
+        const pageNameInput = document.getElementById('page-name');
+        pageNameInput.addEventListener('input', function() {
+            checkInput(this);
+        });
+        checkInput(pageNameInput); // 初始狀態檢查
+    };
+</script>
+</body>
+</html>

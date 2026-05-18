@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" >
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>海軍P3反潛巡邏機(NAVY P3C)</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 1. 基礎設定與字體引入 --- */
+/* 如果 head 沒引入，建議加入：<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet"> */
+
+/* --- 1. 字體與基礎設定 --- */
+/* 建議在 head 引入：<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet"> */
+<style>
+:root {
+    --site-font: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --primary-color: #000000;
+    --accent-color: #d84b2a; /* 根據你的截圖按鈕顏色微調 */
+    --border-color: #e5e5e5;
+    --bg-light: #f9f9f9;
+}
+
+/* 全域字體套用 */
+body, input, select, textarea, .select2-container {
+    font-family: var(--site-font);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- 2. 黑色背景下的標題修改 (簡約白色) --- */
+.page-title {
+    font-family: var(--site-font) !important;
+    font-size: 2.6rem !important;    /* 縮小後的標題尺寸 */
+    font-weight: 300 !important;    /* 輕盈的細體 */
+    text-transform: uppercase;      /* 英文轉大寫 */
+    letter-spacing: 0.2rem;         /* 增加字距營造簡約感 */
+    color: #ffffff !important;      /* 強制標題為白色以對應黑色底圖 */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* 輕微陰影確保在不同圖層上的易讀性 */
+    margin-bottom: 1.5rem !important;
+    text-align: center;
+    background: transparent !important;
+}
+
+/* --- 3. 表單區塊與一般欄位設計 --- */
+.s-content__form {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    background-color: #ffffff; /* 表單區域維持白色背景以方便閱讀 */
+}
+
+.form-field {
+    margin-bottom: 2.4rem;
+}
+
+label {
+    display: block;
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+    color: #555 !important;
+}
+
+/* 統一所有原生輸入框樣式 (Input & Textarea) */
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="date"],
+textarea {
+    width: 100%;
+    height: 60px; /* 統一高度 */
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-light);
+    border-radius: 4px;
+    font-size: 1.5rem !important;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+textarea {
+    min-height: 150px;
+    height: auto;
+}
+
+/* 聚焦狀態 (Focus) */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #000 !important;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* --- 4. Select2 進階美化 (搜尋選單) --- */
+
+/* 主選擇框外框 */
+.select2-container--default .select2-selection--single {
+    height: 60px !important;
+    background-color: var(--bg-light) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 4px !important;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* 選擇框內的文字 */
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 60px !important;
+    padding-left: 1.5rem !important;
+    font-size: 1.5rem !important;
+    color: #333 !important;
+}
+
+/* 下拉箭頭 */
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 58px !important;
+    right: 15px !important;
+}
+
+/* 搜尋輸入框縮小美化 (關鍵修改) */
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    padding: 8px 12px !important;
+    height: auto !important;
+    margin: 8px !important;
+    border: 1px solid var(--border-color) !important;
+    font-size: 1.4rem !important;
+    line-height: 1.5 !important;
+    border-radius: 4px;
+    background-color: #fff !important; /* 搜尋框內維持白色 */
+}
+
+/* 下拉選單彈窗 */
+.select2-dropdown {
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    border-radius: 4px !important;
+    overflow: hidden;
+}
+
+/* 下拉選項 */
+.select2-results__option {
+    padding: 12px 16px !important;
+    font-size: 1.5rem !important;
+}
+
+/* 選項選中/經過時的顏色 */
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #000 !important;
+    color: #ffffff !important;
+}
+
+/* --- 5. 送出按鈕美化 --- */
+.btn--primary.u-fullwidth {
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0;
+    margin-top: 2rem;
+    background-color: #000; /* 修改為與整體配色一致的黑色 */
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn--primary.u-fullwidth:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+    </style>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<body id="top">
+
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div><div></div><div></div>
+        </div>
+    </div>   
+
+    <div id="page" class="s-pagewrap">
+
+        <div class="menu-underlay"></div>
+
+        <header class="s-header">
+            <div class="s-header__block">
+                <a class="s-header__menu-toggle" href="#0"><span>Browse</span></a>
+                <div class="s-header__cta">
+                    <a href="reservations.html" class="btn btn--primary s-header__cta-btn">匯入檔案(Import)</a>                        
+                </div>
+            </div> 
+
+            <nav class="s-header__nav">    
+                <a href="#0" class="s-header__nav-close-btn" title="close"><span>Close</span></a>
+                <ul class="s-header__nav-links">
+                    <li class="current"><a href="index.html">Home(首頁)</a></li>
+                    <li><a href="NAVY_P3C.html">海軍P3C反潛巡邏機(NAVY P3C)</a></li>
+                    <li><a href="CGA.html">海巡署(CGA)</a></li>
+                    <li><a href="NAVY.html">海軍(NAVY)</a></li>
+                    <li><a href="UAV.html">無人航空載具(UAV)</a></li>
+                    <li><a href="RF_16.html">空軍RF-16偵察機(Air Force RF-16)</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article class="s-content">
+            <section class="s-pageheader pageheader" >
+                <div class="row">
+                    <div class="column xl-12 s-pageheader__content">
+                        <h1 class="page-title">海軍P3C反潛巡邏機(NAVY P3C)</h1>                    
+                    </div>
+                </div>
+            </section> 
+            
+            <section class="s-content__form">
+                <div class="row width-narrower">
+                    <div class="column xl-12">
+                        
+    <form name="contactForm" id="contactForm" method="POST" action="submit_data.php">
+    <fieldset>
+
+        <div class="form-field"> 
+            <label for="db-select-navy">海軍裝備選擇 (NAVY P3C)</label>
+            <select name="item_navy" id="db-select-navy" class="u-fullwidth searchable-select">
+                <option value="">請輸入關鍵字搜尋...</option>
+                <option value="p3c_01">P3C 反潛機 - 編號 1234</option>
+            </select>
+        </div>
+
+        <div class="form-field">
+            <label for="db-select-cga">XXXX</label>
+            <select name="item_cga" id="db-select-cga" class="u-fullwidth searchable-select">
+                <option value="">請輸入關鍵字搜尋...</option>
+                <option value="cga_01">嘉義級巡防艦</option>
+            </select>
+        </div>
+
+        <div class="form-field">
+            <label for="db-select-af">XXX</label>
+            <select name="item_af" id="db-select-af" class="u-fullwidth searchable-select">
+                <option value="">請輸入關鍵字搜尋...</option>
+                <option value="rf16_01">RF-16 偵查機</option>
+            </select>
+        </div>
+
+        <div class="form-field">
+            <label for="db-select-uav">XXX</label>
+            <select name="item_uav" id="db-select-uav" class="u-fullwidth searchable-select">
+                <option value="">請輸入關鍵字搜尋...</option>
+                <option value="uav_type1">騰雲無人機</option>
+                <option value="uav_type2">銳鳶無人機</option>
+            </select>
+        </div>
+
+        
+        <div class="form-field">
+            <input type="submit" value="送出" class="btn btn--primary u-fullwidth">
+        </div>
+
+    </fieldset>
+</form>
+
+                    </div>
+                </div>
+            </section> 
+        </article>
+
+        <footer id="footer" class="s-footer">  
+            <div class="row s-footer__bottom">
+                <div class="column xl-6 lg-12">
+                    <p class="ss-copyright">
+                        <span>© Copyright TTN_TECH_TEAM 2026</span> 
+                        <span>Design by TWN_J6_Thomas</span>
+                    </p>
+                </div>
+            </div>
+            <div class="ss-go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top">                    
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z"/></svg>
+                </a>                                
+                <span>Back To Top</span>   
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+    // 1. 定義美化選項的函數 (加上資料庫圖示)
+    function formatState(state) {
+        if (!state.id) {
+            return state.text;
+        }
+        // 這裡使用了 FontAwesome 圖示，如果沒載入 CSS 則會顯示空白，但不影響文字
+        var $state = $(
+            '<span><i class="fa fa-database" style="margin-right: 10px; color: #888;"></i>' + state.text + '</span>'
+        );
+        return $state;
+    };
+
+    // 2. 初始化所有具有 .searchable-select 類別的選單
+    // 注意：建議在 HTML 將 select 的 class 加入 "searchable-select"
+    // 或者直接用 $('select') 針對頁面上所有選單
+    $('.searchable-select').select2({
+        placeholder: "請輸入關鍵字搜尋...",
+        allowClear: true,
+        width: '100%',
+        language: {
+            searching: function() {
+                return "正在從資料庫檢索中...";
+            },
+            noResults: function() {
+                return "查無相關資料";
+            }
+        },
+        templateResult: formatState,
+        templateSelection: formatState // 選中後也顯示圖示
+    });
+
+    // 3. 模擬從 Java 後端抓取資料並放入不同的選單
+    // 假設你有三個選單：#db-select-navy, #db-select-cga, #db-select-af
+    
+    var navyData = [
+        { id: 'P3C_01', text: 'NAVY P3C - 偵測任務 101' },
+        { id: 'P3C_02', text: 'NAVY P3C - 巡邏機 A02' }
+    ];
+
+    var cgaData = [
+        { id: 'CGA_01', text: '海巡署 - 巡防艦 601' },
+        { id: 'CGA_02', text: '海巡署 - 岸巡支援隊' }
+    ];
+
+    var afData = [
+        { id: 'RF16_01', text: 'Air Force RF-16 - 偵照機' },
+        { id: 'UAV_01', text: '無人機系統 - 騰雲' }
+    ];
+
+    // 封裝一個加入選項的工具
+    function populateSelect(elementId, data) {
+        var $select = $('#' + elementId);
+        data.forEach(function(item) {
+            var newOption = new Option(item.text, item.id, false, false);
+            $select.append(newOption);
+        });
+        $select.trigger('change'); // 觸發更新
+    }
+
+    // 執行加入動作
+    populateSelect('db-select-navy', navyData);
+    populateSelect('db-select-cga', cgaData);
+    populateSelect('db-select-af', afData);
+});
+    </script>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
